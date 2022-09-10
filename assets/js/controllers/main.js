@@ -72,7 +72,11 @@ app.controller('mainCtrl', function ($scope, $rootScope, request) {
 
     $scope.send = function (local) {
 
-        request.getLocation(local).then((data) => $scope.load(data));
+        local == ''
+
+            ? $scope.location()
+
+            : request.getLocation(local).then((data) => $scope.load(data));
     }
 
     $scope.geolocation = function (lat, log) {
@@ -106,14 +110,21 @@ app.controller('mainCtrl', function ($scope, $rootScope, request) {
 
                 const date = new Date()
 
-                const hora = date.getHours();
-
-                const minuto = date.getMinutes();
-
-                return `${hora}:${minuto}`
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var ampm = hours >= 12 ? 'pm' : 'am';
+                hours = hours % 12;
+                hours = hours ? hours : 12; // the hour '0' should be '12'
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                var strTime = hours + ':' + minutes + ' ' + ampm;
+                return strTime;
             }
         }
     }
 
-    navigator.geolocation.getCurrentPosition(p => $scope.geolocation(p.coords.latitude, p.coords.longitude))
+    $scope.location = function () {
+        navigator.geolocation.getCurrentPosition(p => $scope.geolocation(p.coords.latitude, p.coords.longitude))
+    }
+
+    $scope.location();
 })

@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Meteorology</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="assets/fonts/style.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body ng-controller="mainCtrl">
@@ -23,9 +29,12 @@
 
             <div class="container-temperatura">
 
-                <img src="{{weather.icone}}" alt="Icone releacionado ao clima atual">
+                <div class="container-temp-icon">
 
-                <h2>{{weather.temperatura}}</h2>
+                    <img src="{{weather.icone}}" alt="Icone releacionado ao clima atual">
+
+                    <h2>{{weather.temperatura}}</h2>
+                </div>
 
                 <h2>{{weather.clima()}}</h2>
             </div>
@@ -37,7 +46,7 @@
 
             <div class="container-horario">
 
-                <button class="button-refresh">
+                <button class="button-refresh" ng-click="location()">
 
                     <div class="container-horario">
 
@@ -55,9 +64,12 @@
 
         <section class="container-busca">
 
-            <input type="search" class="input-busca" ng-model="local">
+            <div class="container-input">
+                <input type="text" placeholder="Digite o local desejado" class="input-busca" ng-model="local"
+                    ng-blur="send(local)">
+            </div>
 
-            <button ng-click="send(local)">Enviar</button>
+            <i class='bx bx-search-alt'></i>
         </section>
     </main>
 
