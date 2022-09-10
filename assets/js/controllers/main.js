@@ -1,59 +1,119 @@
-app.controller('mainCtrl', function ($scope, $rootScope) {
+app.controller('mainCtrl', function ($scope, $rootScope, request) {
 
     $scope.translation = {
 
-        'Clear': ' limpo',
         'clear sky': 'Céu limpo',
-        'Clouds': 'Nuvens',
         'few clouds': 'Poucas nuvens',
         'scattered clouds': 'Nuvens dispersas',
         'broken clouds': 'Nuvens quebradas',
-        'shower rain': 'chuva',
-        'Rain': 'Raios',
-        'thunderstorm': 'Tempestade',
+        'overcast clouds': 'Nuvens nubladas',
+        'shower rain': 'Chuva',
+        'rain': 'Raios',
         'snow': 'Neve',
         'mist': 'Névoa',
+
+        // Thunderstorm = Tempestade (Grupo)
+        'thunderstorm with light rain': 'Trovoada com chuva fraca',
+        'thunderstorm with rain': 'Trovoada com chuva',
+        'thunderstorm with heavy rain': 'Trovoada com chuva forte',
+        'light thunderstorm': 'Trovoada leve',
+        'thunderstorm': 'Tempestade',
+        'heavy thunderstorm': 'Forte tempestade',
+        'ragged thunderstorm': 'Tempestade irregular',
+        'thunderstorm with light drizzle': 'Trovoada com chuvisco',
+        'thunderstorm with drizzle': 'Trovoada com chuvisco',
+        'thunderstorm with heavy drizzle': 'Trovoada com chuva forte',
+
+        // Drizzle = Chuvisco (Grupo)
+        'light intensity drizzle': 'Chuvisco de intensidade de luz',
+        'drizzle': 'Chuvisco',
+        'heavy intensity drizzle': 'Chuvisco de forte intensidade',
+        'light intensity drizzle rain': 'Chuva de intensidade leve com raios',
+        'drizzle rain': 'Chuvisco com raios',
+        'heavy intensity drizzle rain': 'Chuva de garoa de forte intensidade',
+        'shower rain and drizzle': 'Chuva e chuvisco',
+        'heavy shower rain and drizzle': 'Chuva forte chuva e chuvisco',
+        'shower drizzle': 'Chuvisco',
+
+        // Rain = Raios (Grupo)
+        'light rain': 'Chuva leve',
+        'moderate rain': 'Chuva moderada',
+        'heavy intensity rain': 'Chuva de forte intensidade',
+        'very heavy rain': 'Chuva muito forte',
+        'extreme rain': 'Chuva extrema',
+        'freezing rain': 'Chuva congelante',
+        'light intensity shower rain': 'Chuva de intensidade de luz',
+        'shower rain': 'Chuva de banho',
+        'heavy intensity shower rain': 'Chuva de chuva de forte intensidade',
+        'ragged shower rain': 'Chuva de chuveiro irregular',
+
+        // Snow = Neve (Grupo)
+        'light snow': 'Pouca neve',
+        'Snow': 'Neve',
+        'Heavy snow': 'Neve pesada',
+        'Sleet': 'granizo',
+        'Light shower sleet': 'Chuveiro leve',
+        'Shower sleet': 'Chuveiro de granizo',
+        'Light rain and snow': 'Chuva leve e neve',
+        'Rain and snow': 'Chuva e neve',
+        'Light shower snow': 'Chuva de neve leve',
+        'Shower snow': 'Chuva de neve',
+        'Heavy shower snow': 'Chuva de neve forte',
+
+        // Clear = Limpo (Grupo)
+        'clear sky': 'Céu limpo',
+
+        // Clouds = Nuvens (Grupo)
+        'few clouds: 11-25%': 'Poucas nuvens: 11-25%',
+        'scattered clouds: 25-50%': 'Nuvens espalhadas: 25-50%',
+        'broken clouds: 51-84%': 'Nuvens quebradas: 51-84%',
+        'overcast clouds: 85-100%': 'Nuvens nubladas: 85-100%',
     }
 
-    $scope.request = function (location, key) {
+    $scope.send = function (local) {
 
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}&units=metric`)
+        request.getLocation(local).then((data) => $scope.load(data));
+    }
 
-            .then(response => response.json())
+    $scope.geolocation = function (lat, log) {
 
-            .then((data) => {
-
-                if (data?.cod && data.code === '404') {
-                    console.log('Local não encontrado!')
-                }
-
-                $scope.load(data);
-            });
+        request.getGeolacation(lat, log).then((data) => $scope.load(data));
     }
 
     $scope.load = function (data) {
 
-        $scope.data = data
+        $rootScope.weather = {
 
-        $.each($scope.translation, function (indice, value) {
+            local: data.name,
 
-            if (indice == $scope.data.weather[0].main) $scope.clima = value;
-        });
+            icone: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
 
-        $scope.nome = `Nome da cidade: ${$scope.data.name}`;
+            temperatura: `${Math.floor(data.main.temp)}°`,
 
-        $scope.temperatura = `Temperatura: ${Math.floor($scope.data.main.temp)}° C`;
+            umidade: `Umidade ${data.main.humidity}%`,
 
-        $scope.icon = `http://openweathermap.org/img/wn/${$scope.data.weather[0].icon}@2x.png`
+            clima: function () {
 
-        console.log($scope.nome);
+                $.each($scope.translation, function (indice, value) {
 
-        console.log($scope.temperatura);
+                    if (indice == data.weather[0].description) $scope.clima = value
+                });
 
-        console.log($scope.clima);
+                return $scope.clima
+            },
 
-        console.log($scope.icon);
+            horas: function () {
+
+                const date = new Date()
+
+                const hora = date.getHours();
+
+                const minuto = date.getMinutes();
+
+                return `${hora}:${minuto}`
+            }
+        }
     }
 
-    $scope.request('Guararema', '24cadfe23677b8512578d5f4d78e94e4')
+    navigator.geolocation.getCurrentPosition(p => $scope.geolocation(p.coords.latitude, p.coords.longitude))
 })
