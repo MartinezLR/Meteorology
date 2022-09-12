@@ -17,60 +17,129 @@
 
 <body ng-controller="mainCtrl">
 
-    <!-- Container Principal -->
-    <main class="container-principal">
+    <div class="wrapper">
+        <div class="loader">
+            <i class='bx bxs-sun bx-spin' style="font-size: 10rem;"></i>
+        </div>
+    </div>
 
-        <section class="container-informacoes">
+    <main class="container-main">
 
-            <div class="container-local">
+        <section class="container-section">
 
-                <h3>{{weather.local}}</h3>
-            </div>
+            <header class="container-header">
 
-            <div class="container-temperatura">
+                <div class="informacoes">
+                    <h4 class="cidade">{{weather.local}}</h4>
+                    <h5 class="data">10 Outubro 2022</h5>
+                </div>
 
-                <div class="container-temp-icon">
+                <div class="menu">
+                    <i class='bx bx-menu-alt-right'></i>
+                </div>
+            </header>
 
-                    <img src="{{weather.icone}}" alt="Icone releacionado ao clima atual">
+            <div class="container">
 
+                <div class="container-location">
+                    <i class='bx bx-current-location'></i>
+                    <span>Sua Localização atual</span>
+                </div>
+
+                <div class="container-temperatura">
                     <h2>{{weather.temperatura}}</h2>
                 </div>
 
-                <h2>{{weather.clima()}}</h2>
-            </div>
+                <div class="container-icone">
+                    <img src="{{weather.icone}}" alt="Icone releacionado ao clima atual">
+                </div>
 
-            <div class="container-extras">
-
-                <span>{{weather.umidade}}</span>
-            </div>
-
-            <div class="container-horario">
+                <div class="container-descricao">
+                    <h2>{{weather.clima()}}</h2>
+                </div>
 
                 <button class="button-refresh" ng-click="location()">
-
-                    <div class="container-horario">
-
-                        <span>{{weather.horas()}}</span>
-                    </div>
-
-                    <div class="container-icone">
-
-                        <i class='bx bx-refresh'></i>
-                    </div>
-
+                    <span>{{weather.horas()}}</span>
+                    <i class='bx bx-refresh'></i>
                 </button>
             </div>
         </section>
 
-        <section class="container-busca">
+        <footer class="container-footer">
 
-            <div class="container-input">
-                <input type="text" placeholder="Digite o local desejado" class="input-busca" ng-model="local"
-                    ng-blur="send(local)">
+            <div class="indentificator-image">
+                <i class='bx bxs-circle'></i>
+                <i class='bx bx-circle'></i>
+                <i class='bx bx-circle'></i>
             </div>
 
-            <i class='bx bx-search-alt'></i>
-        </section>
+            <section class="container">
+
+                <header class="container-header">
+
+                    <!-- (Section) Informações -->
+                    <div class="container-info">
+                        <span>Informações</span>
+                    </div>
+
+                    <!-- (icone) Informações -->
+                    <div class="container-icone">
+                        <i class='bx bx-chevron-up'></i>
+                    </div>
+                </header>
+
+                <div class="container-items">
+
+                    <div class="items">
+                        <div class="icone">
+                            <i class='bx bx-droplet'></i>
+                        </div>
+
+                        <div class="texto">
+                            <span class="titulo">Umidade</span>
+                            <span class="valor">{{weather.umidade}}</span>
+                        </div>
+                    </div>
+
+                    <div class="items">
+                        <div class="icone">
+                            <i class='bx bx-cloud'></i>
+                        </div>
+
+                        <div class="texto">
+                            <span class="titulo">Nublado</span>
+                            <span class="valor">{{weather.nublado}}</span>
+                        </div>
+                    </div>
+
+                    <div class="items">
+                        <div class="icone">
+                            <i class='bx bx-wind'></i>
+                        </div>
+
+                        <div class="texto">
+                            <span class="titulo">Vento</span>
+                            <span class="valor">{{weather.velocidade}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-buttons">
+
+                    <button class="button">
+                        <i class='bx bx-home'></i>
+                        <span>Home</span>
+                    </button>
+
+                    <div class="container-input">
+                        <i class='bx bx-search-alt'></i>
+
+                        <input type="text" placeholder="Digite o local desejado" class="input-busca" ng-model="local"
+                            ng-blur="send(local)">
+                    </div>
+                </div>
+            </section>
+        </footer>
     </main>
 
     <script src="lib/node_modules/angular/angular.min.js"></script>

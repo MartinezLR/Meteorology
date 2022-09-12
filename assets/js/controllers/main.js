@@ -1,5 +1,13 @@
 app.controller('mainCtrl', function ($scope, $rootScope, request) {
 
+    const fadeOut = () => {
+        const loaderWrapper =
+            document.querySelector('.wrapper');
+        loaderWrapper.classList.add('fade');
+    }
+
+    window.addEventListener('load', fadeOut);
+
     $scope.translation = {
 
         'clear sky': 'Céu limpo',
@@ -88,13 +96,19 @@ app.controller('mainCtrl', function ($scope, $rootScope, request) {
 
         $rootScope.weather = {
 
+            full: data,
+
             local: data.name,
 
             icone: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
 
             temperatura: `${Math.floor(data.main.temp)}°`,
 
-            umidade: `Umidade ${data.main.humidity}%`,
+            umidade: `${data.main.humidity}%`,
+
+            velocidade: `${Math.floor(data.wind.speed)}km/h`,
+
+            nublado: `${data.clouds.all}%`,
 
             clima: function () {
 
@@ -112,7 +126,7 @@ app.controller('mainCtrl', function ($scope, $rootScope, request) {
 
                 var hours = date.getHours();
                 var minutes = date.getMinutes();
-                var ampm = hours >= 12 ? 'pm' : 'am';
+                var ampm = hours >= 12 ? 'PM' : 'AM';
                 hours = hours % 12;
                 hours = hours ? hours : 12; // the hour '0' should be '12'
                 minutes = minutes < 10 ? '0' + minutes : minutes;
@@ -120,6 +134,8 @@ app.controller('mainCtrl', function ($scope, $rootScope, request) {
                 return strTime;
             }
         }
+
+        console.log($rootScope.weather.full);
     }
 
     $scope.location = function () {
