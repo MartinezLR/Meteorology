@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br" ng-app="app">
+<html lang="pt-br" ng-app="app" ng-controller="ctrl.main"
+    ng-init="requests.location('Guararema'); requests.translation();">
 
 <head>
     <meta charset="UTF-8">
@@ -10,13 +11,10 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <link rel="stylesheet" href="assets/fonts/style.css">
-
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<body ng-controller="mainCtrl">
-
+<body>
     <div class="wrapper">
         <div class="loader">
             <i class='bx bxs-sun bx-spin' style="font-size: 10rem;"></i>
@@ -30,12 +28,14 @@
             <header class="container-header">
 
                 <div class="informacoes">
-                    <h4 class="cidade">{{weather.local}}</h4>
-                    <h5 class="data">10 Outubro 2022</h5>
+                    <h4 class="cidade">{{weather.locate()}}</h4>
+                    <h5 class="data">{{utc.completeDate()}}</h5>
                 </div>
 
                 <div class="menu">
-                    <i class='bx bx-menu-alt-right'></i>
+                    <button class="button-menu">
+                        <i class='bx bx-menu-alt-right'></i>
+                    </button>
                 </div>
             </header>
 
@@ -47,19 +47,19 @@
                 </div>
 
                 <div class="container-temperatura">
-                    <h2>{{weather.temperatura}}</h2>
+                    <h2>{{weather.temperature()}}</h2>
                 </div>
 
                 <div class="container-icone">
-                    <img src="{{weather.icone}}" alt="Icone releacionado ao clima atual">
+                    <img src="{{weather.icon()}}" alt="Icone releacionado ao clima atual">
                 </div>
 
                 <div class="container-descricao">
-                    <h2>{{weather.clima()}}</h2>
+                    <h2>{{weather.climate()}}</h2>
                 </div>
 
-                <button class="button-refresh" ng-click="location()">
-                    <span>{{weather.horas()}}</span>
+                <button class="button-refresh" ng-click="requests.location()">
+                    <span>{{utc.completeTime()}}</span>
                     <i class='bx bx-refresh'></i>
                 </button>
             </div>
@@ -97,7 +97,7 @@
 
                         <div class="texto">
                             <span class="titulo">Umidade</span>
-                            <span class="valor">{{weather.umidade}}</span>
+                            <span class="valor">{{weather.moisture()}}</span>
                         </div>
                     </div>
 
@@ -108,7 +108,7 @@
 
                         <div class="texto">
                             <span class="titulo">Nublado</span>
-                            <span class="valor">{{weather.nublado}}</span>
+                            <span class="valor">{{weather.cloudy()}}</span>
                         </div>
                     </div>
 
@@ -119,7 +119,7 @@
 
                         <div class="texto">
                             <span class="titulo">Vento</span>
-                            <span class="valor">{{weather.velocidade}}</span>
+                            <span class="valor">{{weather.velocity()}}</span>
                         </div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                         <i class='bx bx-search-alt'></i>
 
                         <input type="text" placeholder="Digite o local desejado" class="input-busca" ng-model="local"
-                            ng-blur="send(local)">
+                            ng-blur="requests.location(local)">
                     </div>
                 </div>
             </section>
