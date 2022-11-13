@@ -1,117 +1,57 @@
-app.controller('ctrl.main', ['$scope', '$rootScope', '$request', function (scope, rootScope, request) {
+app.controller('ctrl.main', ['$scope', '$rootScope', '$request', '$weather', '$utc', function (scope, rootScope, request, weather, utc) {
 
-    const fadeOut = () => {
-        const loaderWrapper =
-            document.querySelector('.wrapper');
-        loaderWrapper.classList.add('fade');
+    // loading
+    scope.fadeOut = () => {
+        const loader = $('div.wrapper').addClass('fade');
+        return loader
     }
 
-    window.addEventListener('load', fadeOut);
+    // Requisição do localizador de região com base na cidade
+    scope.location = async function (local) {
 
-    scope.requests = {
+        local ?? true ? await request.location(local).then(response => scope.weather(response.data)).catch(resp => console.log(`Erro encontrado: ${resp.data.message}`)) : scope.geolacation()
+        scope.fadeOut()
+    }
 
-        // Requisição do localizador de região com base na cidade
-        location: function (local) {
-            if (local == undefined) return;
-            request.getLocation(local).then((response) => scope.loader(response.data))
-        },
+    // Requisição do localizador de região com base no seu local atual
+    scope.geolacation = function () {
 
-        // Requisição do localizador de região com base no seu local atual
-        geolacation: function (lat, log) {
-            request.getGeolacation(lat, log).then((response) => scope.loader(response.data))
-        },
+        navigator.geolocation.getCurrentPosition(async function (position) {
+            await request.geolacation(position.coords.latitude, position.coords.longitude).then((response) => scope.weather(response.data))
+            scope.fadeOut()
+        })
+    }
 
-        // Requisição do Dicionario
-        translation: function () {
-            request.getTranslation().then((response) => response.data);
+    scope.weather = function (data) {
+
+        scope.meteorology = {
+            locate: weather.locate(data),
+            icon: weather.icon(data),
+            temperature: weather.temperature(data),
+            moisture: weather.moisture(data),
+            velocity: weather.velocity(data),
+            cloudy: weather.cloudy(data),
+            climate: weather.climate(data),
         }
     }
 
-    scope.loader = function (response) {
+    scope.utc = function () {
 
-        scope.weather = {
+        scope.date = {
+            day: utc.day(),
+            month: utc.month(),
+            year: utc.year(),
+            completeDate: utc.completeDate(),
+        }
 
-            locate: function () {
-                let name = response.name
-                return name
-            },
-
-            icon: function () {
-                let icone = `http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`;
-                return icone
-            },
-
-            temperature: function () {
-                let temperature = `${Math.floor(response.main.temp)}°`
-                return temperature
-            },
-
-            moisture: function () {
-                let moisture = `${response.main.humidity}%`
-                return moisture
-            },
-
-            velocity: function () {
-                let velocity = `${Math.floor(response.wind.speed)}km/h`
-                return velocity
-            },
-
-            cloudy: function () {
-                let cloudy = `${response.clouds.all}%`
-                return cloudy
-            },
-
-            climate: function () {
-                let climate = response.weather[0].description
-                return climate
-            }
+        scope.time = {
+            hours: utc.hours(),
+            minutes: utc.minutes(),
+            periods: utc.periods(),
+            completeTime: utc.completeTime(),
         }
     }
 
-    scope.utc = {
-
-        date: new Date(),
-
-        day: function () {
-            let day = scope.utc.date.getDate();
-            return day < 10 ? `0${day}` : day;
-        },
-
-        month: function () {
-            let month = scope.utc.date.getMonth() + 1;
-            return month < 10 ? `0${month}` : month;
-        },
-
-        year: function () {
-            let year = scope.utc.date.getFullYear();
-            return year
-        },
-
-        completeDate: function () {
-            date = `${scope.utc.day()}/${scope.utc.month()}/${scope.utc.year()}`
-            return date
-        },
-
-        hours: function () {
-            let hours = scope.utc.date.getHours();
-            hours = hours % 12;
-            hours = hours ? hours : 12;
-            return hours
-        },
-
-        minutes: function () {
-            let minutes = scope.utc.date.getMinutes();
-            return minutes < 10 ? `0${minutes}` : minutes;
-        },
-
-        periods: function () {
-            let ampm = scope.utc.date.getHours() >= 12 ? 'PM' : 'AM';
-            return ampm
-        },
-
-        completeTime: function () {
-            let time = `${scope.utc.hours()}:${scope.utc.minutes()} ${scope.utc.periods()}`
-            return time;
-        },
-    }
+    scope.utc()
+    scope.geolacation()
 }])

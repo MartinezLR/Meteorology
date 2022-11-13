@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" ng-app="app" ng-controller="ctrl.main"
-    ng-init="requests.location('Guararema'); requests.translation();">
+<html lang="pt-br" ng-app="app" ng-controller="ctrl.main" ng-init="location('Guararema')">
 
 <head>
     <meta charset="UTF-8">
@@ -28,8 +27,8 @@
             <header class="container-header">
 
                 <div class="informacoes">
-                    <h4 class="cidade">{{weather.locate()}}</h4>
-                    <h5 class="data">{{utc.completeDate()}}</h5>
+                    <h4 class="cidade">{{meteorology.locate}}</h4>
+                    <h5 class="data">{{date.completeDate}}</h5>
                 </div>
 
                 <div class="menu">
@@ -47,19 +46,19 @@
                 </div>
 
                 <div class="container-temperatura">
-                    <h2>{{weather.temperature()}}</h2>
+                    <h2>{{meteorology.temperature}}</h2>
                 </div>
 
                 <div class="container-icone">
-                    <img src="{{weather.icon()}}" alt="Icone releacionado ao clima atual">
+                    <img src="{{meteorology.icon}}" alt="Icone releacionado ao clima atual">
                 </div>
 
                 <div class="container-descricao">
-                    <h2>{{weather.climate()}}</h2>
+                    <h2>{{meteorology.climate}}</h2>
                 </div>
 
-                <button class="button-refresh" ng-click="requests.location()">
-                    <span>{{utc.completeTime()}}</span>
+                <button class="button-refresh" ng-click="location(local);">
+                    <span>{{time.completeTime}}</span>
                     <i class='bx bx-refresh'></i>
                 </button>
             </div>
@@ -97,7 +96,7 @@
 
                         <div class="texto">
                             <span class="titulo">Umidade</span>
-                            <span class="valor">{{weather.moisture()}}</span>
+                            <span class="valor">{{meteorology.moisture}}</span>
                         </div>
                     </div>
 
@@ -108,7 +107,7 @@
 
                         <div class="texto">
                             <span class="titulo">Nublado</span>
-                            <span class="valor">{{weather.cloudy()}}</span>
+                            <span class="valor">{{meteorology.cloudy}}</span>
                         </div>
                     </div>
 
@@ -119,28 +118,25 @@
 
                         <div class="texto">
                             <span class="titulo">Vento</span>
-                            <span class="valor">{{weather.velocity()}}</span>
+                            <span class="valor">{{meteorology.velocity}}</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="container-buttons">
 
-                    <button class="button">
-                        <i class='bx bx-home'></i>
-                        <span>Home</span>
-                    </button>
-
                     <div class="container-input">
                         <i class='bx bx-search-alt'></i>
 
                         <input type="text" placeholder="Digite o local desejado" class="input-busca" ng-model="local"
-                            ng-blur="requests.location(local)">
+                            ng-blur="location(local)">
                     </div>
                 </div>
             </section>
         </footer>
     </main>
+
+    <script src="lib/node_modules/jquery/dist/jquery.min.js"></script>
 
     <script src="lib/node_modules/angular/angular.min.js"></script>
 
@@ -150,8 +146,9 @@
 
     <script src="assets/js/factorys/request.js"></script>
 
-    <script src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="assets/js/factorys/weather.js"></script>
 
+    <script src="assets/js/factorys/utc.js"></script>
 </body>
 
 </html>
