@@ -1,4 +1,10 @@
-app.controller('ctrl.main', ['$scope', '$rootScope', '$request', '$weather', '$utc', function (scope, rootScope, request, weather, utc) {
+
+app.controller('$ctrl.main', ['$scope', '$rootScope', '$request', '$weather', '$utc', '$route', '$routeParams', '$location', function main(scope, rootScope, request, weather, utc, $route, $routeParams, $location) {
+    var vm = this;
+
+    vm.$route = $route;
+    vm.$location = $location;
+    vm.$routeParams = $routeParams;
 
     // loading
     scope.fadeOut = () => {

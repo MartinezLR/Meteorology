@@ -1,0 +1,18 @@
+:root {
+    color-scheme: dark light;
+}
+
+@media only screen and (max-width: 480px) {
+
+    @media (prefers-color-scheme: dark) {
+        body {
+            background-color: #1a1a1a;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        body {
+            background-color: #ffffff;
+        }
+    }
+}

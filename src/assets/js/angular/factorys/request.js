@@ -11,7 +11,7 @@ app.factory('$request', ['$http', function (http) {
     }
 
     const getTranslation = function () {
-        return http.get('assets/json/translation.json');
+        return http.get('src/assets/json/translation.json');
     }
 
     return {

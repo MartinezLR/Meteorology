@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt-br" ng-app="app" ng-controller="ctrl.main" ng-init="location('Guararema')">
+<html lang="pt-br" ng-app="app" ng-controller="$ctrl.main" ng-init="location('Guararema')">
 
 <head>
     <meta charset="UTF-8">
+
+    <meta name="color-scheme" content="dark light">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Meteorology</title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="src/assets/css/style.css">
+
+    <link rel="stylesheet" href="src/assets/css/root.css">
+
+    <link rel="stylesheet" href="src/assets/css/main.css">
 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -16,139 +22,34 @@
 <body>
     <div class="wrapper">
         <div class="loader">
-            <i class='bx bxs-sun bx-spin' style="font-size: 10rem;"></i>
+            <i class='bx bx-cloud-lightning bx-tada' style='color:#282828; font-size: 7rem;'></i>
         </div>
     </div>
 
-    <main class="container-main">
-
-        <section class="container-section">
-
-            <header class="container-header">
-
-                <div class="informacoes">
-                    <h4 class="cidade">{{meteorology.locate}}</h4>
-                    <h5 class="data">{{date.completeDate}}</h5>
-                </div>
-
-                <div class="menu">
-                    <button class="button-menu">
-                        <i class='bx bx-menu-alt-right'></i>
-                    </button>
-                </div>
-            </header>
-
-            <div class="container">
-
-                <div class="container-location">
-                    <i class='bx bx-current-location'></i>
-                    <span>Sua Localização atual</span>
-                </div>
-
-                <div class="container-temperatura">
-                    <h2>{{meteorology.temperature}}</h2>
-                </div>
-
-                <div class="container-icone">
-                    <img src="{{meteorology.icon}}" alt="Icone releacionado ao clima atual">
-                </div>
-
-                <div class="container-descricao">
-                    <h2>{{meteorology.climate}}</h2>
-                </div>
-
-                <button class="button-refresh" ng-click="location(local);">
-                    <span>{{time.completeTime}}</span>
-                    <i class='bx bx-refresh'></i>
-                </button>
-            </div>
-        </section>
-
-        <footer class="container-footer">
-
-            <div class="indentificator-image">
-                <i class='bx bxs-circle'></i>
-                <i class='bx bx-circle'></i>
-                <i class='bx bx-circle'></i>
-            </div>
-
-            <section class="container">
-
-                <header class="container-header">
-
-                    <!-- (Section) Informações -->
-                    <div class="container-info">
-                        <span>Informações</span>
-                    </div>
-
-                    <!-- (icone) Informações -->
-                    <div class="container-icone">
-                        <i class='bx bx-chevron-up'></i>
-                    </div>
-                </header>
-
-                <div class="container-items">
-
-                    <div class="items">
-                        <div class="icone">
-                            <i class='bx bx-droplet'></i>
-                        </div>
-
-                        <div class="texto">
-                            <span class="titulo">Umidade</span>
-                            <span class="valor">{{meteorology.moisture}}</span>
-                        </div>
-                    </div>
-
-                    <div class="items">
-                        <div class="icone">
-                            <i class='bx bx-cloud'></i>
-                        </div>
-
-                        <div class="texto">
-                            <span class="titulo">Nublado</span>
-                            <span class="valor">{{meteorology.cloudy}}</span>
-                        </div>
-                    </div>
-
-                    <div class="items">
-                        <div class="icone">
-                            <i class='bx bx-wind'></i>
-                        </div>
-
-                        <div class="texto">
-                            <span class="titulo">Vento</span>
-                            <span class="valor">{{meteorology.velocity}}</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container-buttons">
-
-                    <div class="container-input">
-                        <i class='bx bx-search-alt'></i>
-
-                        <input type="text" placeholder="Digite o local desejado" class="input-busca" ng-model="local"
-                            ng-blur="location(local)">
-                    </div>
-                </div>
-            </section>
-        </footer>
-    </main>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
     <script src="lib/node_modules/jquery/dist/jquery.min.js"></script>
 
     <script src="lib/node_modules/angular/angular.min.js"></script>
 
-    <script src="assets/js/app.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular-route.js"></script>
 
-    <script src="assets/js/controllers/main.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular-animate.js"></script>
 
-    <script src="assets/js/factorys/request.js"></script>
+    <script src="src/assets/js/angular/app/app.js"></script>
 
-    <script src="assets/js/factorys/weather.js"></script>
+    <script src="src/assets/js/angular/config/router/route.js"></script>
 
-    <script src="assets/js/factorys/utc.js"></script>
+    <script src="src/assets/js/angular/factorys/request.js"></script>
+
+    <script src="src/assets/js/angular/factorys/weather.js"></script>
+
+    <script src="src/assets/js/angular/factorys/utc.js"></script>
+
+    <script src="src/assets/js/angular/controllers/main/main.js"></script>
+
+    <script src="src/assets/js/angular/controllers/inicio/inicio.js"></script>
+
 </body>
 
 </html>
