@@ -239,12 +239,11 @@ section.container div.container-buttons button i {
 
 section.container div.container-buttons div.container-input {
     display: flex;
-    justify-content: end;
+    /* justify-content: end; */
     align-items: center;
     position: relative;
     height: 100%;
-    width: 70%;
-    margin-left: 10px;
+    width: 100%;
     border: none;
     border-radius: 10px;
     background-color: #ffffff;
@@ -252,17 +251,21 @@ section.container div.container-buttons div.container-input {
 
 section.container div.container-buttons div.container-input i {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: rgb(36, 36, 36);
     left: 0;
-    padding-left: 10px;
-    margin: 0;
+    width: 48px;
+    height: 48px;
     font-size: 1rem;
 }
 
 section.container div.container-buttons div.container-input input {
     border: none;
     display: flex;
-    justify-content: end;
+    padding-left: 50px;
+    width: 100%;
 }
 
 section.container div.container-buttons div.container-input input:focus {
