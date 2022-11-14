@@ -1,44 +1,119 @@
-<section>
-    <div>
-        <span>27°</span>
-        <span>Few clouds</span>
+<section class="container-main-temperature">
+
+    <div class="container-main-temperature-degrees-description">
+        <span class="degrees">{{meteorology.temperature}}</span>
+        <span class="description">{{meteorology.climate}}</span>
     </div>
 
-    <div>
-        <img src="" alt="">
+    <div class="container-main-temperature-image-refresh">
 
-        <span>
-            <box-icon name='refresh'></box-icon>
-        </span>
+        <button class="button-refresh">
+            <span class="container-refresh">
+                <box-icon name='refresh'></box-icon>
+            </span>
+            <img src="{{meteorology.icon}}" alt="Imagem relacionado ao clima atual" class="image">
+        </button>
     </div>
 </section>
 
-<section>
-    <div>
-        <span>Imagem</span>
-        <span>Umidade</span>
-        <span>00%</span>
+<section class="container-time">
+    <button class="timer">
+        <box-icon name='watch' type='solid'></box-icon>
+        {{time.completeTime}}
+    </button>
+</section>
+
+<section class="container-informations">
+
+    <div class="container-information-umimdade">
+        <box-icon type='solid' name='cloud'></box-icon>
+        <span class="information-umimdade">Nublado</span>
+        <span>{{meteorology.cloudy}}</span>
     </div>
-    <div>
-        <span>Imagem</span>
-        <span>Umidade</span>
-        <span>00%</span>
+
+    <div class="container-information-wind">
+        <box-icon name='wind'></box-icon>
+        <span class="information-umimdade">Vento</span>
+        <span>{{meteorology.velocity}}</span>
     </div>
-    <div>
-        <span>Imagem</span>
-        <span>Umidade</span>
-        <span>00%</span>
+
+    <div class="container-information-droplet">
+        <box-icon name='droplet' type='solid'></box-icon>
+        <span class="information-umimdade">Umidade</span>
+        <span>{{meteorology.moisture}}</span>
     </div>
 </section>
 
-<section>
-    <div>
-        <span>Maps</span>
+<div class="container-title-section">
+
+    <div class="container-location">
+        <box-icon name='current-location'></box-icon>
+        <span class="title">Sua Localização</span>
     </div>
+
+    <div class="container-more">
+        <button class="more">Ver mais</button>
+    </div>
+</div>
+
+<section class="container-maps">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29302.16854175334!2d-46.11535009999999!3d-23.360307199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1668384721228!5m2!1spt-BR!2sbr"
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
 </section>
 
-<section>
-    <div></div>
-    <div></div>
-    <div></div>
+<div class="container-title-section">
+
+    <div class="container-location">
+        <box-icon name='calendar' type='solid'></box-icon>
+        <span class="title">Clima da Semana</span>
+    </div>
+
+    <div class="container-more">
+        <button class="more">Ver mais</button>
+    </div>
+</div>
+
+<section class="container-weather-week">
+    <div>Not Found</div>
+    <div>Not Found</div>
+    <div>Not Found</div>
+    <div>Not Found</div>
+    <div>Not Found</div>
+    <div>Not Found</div>
+    <div>Not Found</div>
+</section>
+
+<div class="container-title-section">
+
+    <div class="container-location">
+        <box-icon name='cloud-rain' type='solid'></box-icon>
+        <span class="title">Previsão do Tempo</span>
+    </div>
+
+    <div class="container-more">
+        <button class="more">Ver mais</button>
+    </div>
+</div>
+
+<section class="container-weather-forecast">
+    <div>Not Found</div>
+    <div>Not Found</div>
+</section>
+
+<div class="container-title-section">
+
+    <div class="container-location">
+        <box-icon name='image' type='solid'></box-icon>
+        <span class="title">Imagens da localização</span>
+    </div>
+
+    <div class="container-more">
+        <button class="more">Ver mais</button>
+    </div>
+</div>
+
+<section class="container-image-location">
+    <div>Not Found</div>
 </section>

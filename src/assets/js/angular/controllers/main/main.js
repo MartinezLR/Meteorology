@@ -21,7 +21,6 @@ app.controller('$ctrl.main', ['$scope', '$rootScope', '$request', '$weather', '$
 
     // Requisição do localizador de região com base no seu local atual
     scope.geolacation = function () {
-
         navigator.geolocation.getCurrentPosition(async function (position) {
             await request.geolacation(position.coords.latitude, position.coords.longitude).then((response) => scope.weather(response.data))
             scope.fadeOut()
@@ -59,5 +58,5 @@ app.controller('$ctrl.main', ['$scope', '$rootScope', '$request', '$weather', '$
     }
 
     scope.utc()
-    scope.geolacation()
+    // scope.geolacation()
 }])

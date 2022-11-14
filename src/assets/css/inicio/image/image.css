@@ -1,0 +1,11 @@
+:is(section.container-image-location) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 10px;
+    height: 230px;
+    border-radius: var(--radius-00);
+    color: var(--color-05);
+    background-color: var(--color-01);
+}

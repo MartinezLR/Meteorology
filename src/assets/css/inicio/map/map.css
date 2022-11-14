@@ -1,0 +1,15 @@
+:is(section.container-maps) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 220px;
+    padding: 17px 15px;
+    border-radius: var(--radius-00);
+    background-color: var(--color-01);
+}
+
+:is(section.container-maps) :is(iframe) {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}

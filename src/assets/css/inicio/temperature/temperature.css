@@ -1,0 +1,56 @@
+:is(section.container-main-temperature) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-top: 15px;
+    height: 100px;
+}
+
+:is(section.container-main-temperature) :is(div.container-main-temperature-degrees-description) {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+:is(section.container-main-temperature) :is(div.container-main-temperature-degrees-description) :is(span.degrees) {
+    font-size: 4rem;
+    line-height: 75px;
+    width: 100%;
+}
+
+:is(section.container-main-temperature) :is(div.container-main-temperature-degrees-description) :is(span.description) {
+    color: var(--color-08);
+    line-height: 25px;
+    width: 100%;
+}
+
+:is(section.container-main-temperature) :is(div.container-main-temperature-image-refresh) :is(button.button-refresh) {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+:is(section.container-main-temperature) :is(div.container-main-temperature-image-refresh) :is(button.button-refresh) :is(img.image) {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+:is(section.container-main-temperature) :is(div.container-main-temperature-image-refresh) :is(button.button-refresh) :is(span.container-refresh) {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 100%;
+    background-color: var(--color-10);
+}
+
+:is(section.container-main-temperature) :is(div.container-main-temperature-image-refresh) :is(button.button-refresh) :is(span.container-refresh) :is(box-icon) {
+    width: 20px;
+    height: 20px;
+}

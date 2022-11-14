@@ -1,0 +1,27 @@
+:is(section.container-time) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+:is(section.container-time) :is(button.timer) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 100%;
+    padding: 20px 0;
+    border: none;
+    border-radius: var(--radius-00);
+    font-weight: 600;
+    color: var(--color-10);
+    background-color: var(--color-01);
+}
+
+:is(section.container-time) :is(box-icon[name|=watch]) {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+    fill: var(--color-10);
+}
