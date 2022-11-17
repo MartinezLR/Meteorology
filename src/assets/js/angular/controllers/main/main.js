@@ -1,20 +1,19 @@
 
-app.controller('$ctrl.main', ['$scope', '$rootScope', '$request', '$weather', '$utc', '$route', '$routeParams', '$location', function main(scope, rootScope, request, weather, utc, $route, $routeParams, $location) {
-    var vm = this;
+app.controller('$ctrl.main', ['$scope', '$rootScope', '$request', '$weather', '$utc', function (scope, rootScope, request, weather, utc) {
 
-    vm.$route = $route;
-    vm.$location = $location;
-    vm.$routeParams = $routeParams;
+    scope.menu = function () {
+        $('body, html').toggleClass('open');
+        // $('button.menu').attr('disabled', 'true')
+    }
 
     // loading
-    scope.fadeOut = () => {
-        const loader = $('div.wrapper').addClass('fade');
-        return loader
+    scope.fadeOut = function () {
+        $('body').removeClass('overflow-hidden')
+        $('div.loader').addClass('fade')
     }
 
     // Requisição do localizador de região com base na cidade
     scope.location = async function (local) {
-
         local ?? true ? await request.location(local).then(response => scope.weather(response.data)).catch(resp => console.log(`Erro encontrado: ${resp.data.message}`)) : scope.geolacation()
         scope.fadeOut()
     }
@@ -40,23 +39,27 @@ app.controller('$ctrl.main', ['$scope', '$rootScope', '$request', '$weather', '$
         }
     }
 
-    scope.utc = function () {
+    scope.date = {
+        day: utc.day(),
+        month: utc.month(),
+        year: utc.year(),
+        completeDate: utc.completeDate(),
+    }
 
-        scope.date = {
-            day: utc.day(),
-            month: utc.month(),
-            year: utc.year(),
-            completeDate: utc.completeDate(),
-        }
+    scope.time = {
+        hours: utc.hours(),
+        minutes: utc.minutes(),
+        periods: utc.periods(),
+        completeTime: utc.refreshTime(),
 
-        scope.time = {
-            hours: utc.hours(),
-            minutes: utc.minutes(),
-            periods: utc.periods(),
-            completeTime: utc.completeTime(),
+        refreshTime: function () {
+            setInterval(function () {
+                $('span.date-hours').html(utc.refreshTime());
+            }, 1000);
         }
     }
 
-    scope.utc()
-    // scope.geolacation()
+    scope.time.refreshTime()
+    scope.location('São Paulo');
+    scope.geolacation()
 }])

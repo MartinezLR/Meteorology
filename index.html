@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" ng-app="app" ng-controller="$ctrl.main" ng-init="location('Fortaleza')">
+<html lang="pt-br" ng-app="app" ng-controller="$ctrl.main">
 
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,8 @@
     <meta name="color-scheme" content="dark light">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="src/assets/img/icon.png" type="image/x-icon">
 
     <title>Meteorology</title>
 
@@ -36,14 +38,11 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="loader">
-            <i class="bx bx-cloud-lightning bx-tada"></i>
-        </div>
+    <div class="loader">
+        <box-icon name='cloud-lightning' type='solid' color="#fff" size='8rem' animation='tada'></box-icon>
     </div>
 
     <header class="container-header">
-
         <div class="container-header-city-date">
             <span class="city">{{meteorology.locate}}
                 <box-icon name='map' type='solid'></box-icon>
@@ -51,8 +50,9 @@
             <span class="date">{{date.completeDate}}</span>
         </div>
 
+        <!-- Menu -->
         <div class="container-header-button">
-            <button class="button menu" disabled>
+            <button class="button menu">
                 <box-icon name="grid-alt" type="solid"></box-icon>
             </button>
         </div>
