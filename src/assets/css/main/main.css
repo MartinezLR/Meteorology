@@ -7,14 +7,14 @@
 }
 
 @media only screen and (max-width: 480px) {
-    .wrapper {
+    .loader {
         display: grid;
         position: fixed;
-        inset: 0;
         place-items: center;
-        background-color: #fff;
+        inset: 0;
+        background-color: var(--color-00);
         transition: opacity .25s, visibility 1s;
-        z-index: 1000;
+        z-index: 10000;
     }
 
     .fade {
@@ -22,8 +22,32 @@
         visibility: hidden;
     }
 
-    body {
+    /* ===== Scrollbar CSS ===== */
+    /* Firefox */
+    * {
+        scrollbar-width: auto;
+        scrollbar-color: #d4d4d4;
+    }
+
+    /* Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 100px;
+        border: none;
+    }
+
+    :is(body) {
         padding: 20px;
+        transition: 0.6s;
     }
 
     :is(div.container-title-section) {
@@ -81,28 +105,5 @@
         fill: var(--color-00);
         background-color: var(--color-10);
         transform: translate(-50%);
-    }
-
-    /* ===== Scrollbar CSS ===== */
-    /* Firefox */
-    * {
-        scrollbar-width: auto;
-        scrollbar-color: #d4d4d4;
-    }
-
-    /* Chrome, Edge, and Safari */
-    *::-webkit-scrollbar {
-        width: 5px;
-        height: 5px;
-    }
-
-    *::-webkit-scrollbar-track {
-        background: transparent;
-    }
-
-    *::-webkit-scrollbar-thumb {
-        background-color: rgba(255, 255, 255, 0.2);
-        border-radius: 100px;
-        border: none;
     }
 }

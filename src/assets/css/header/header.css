@@ -36,6 +36,7 @@
 
 :is(header.container-header) :is(div.container-header-city-date) :is(span.city) {
     font-size: 20px;
+    color: var(--color-10);
 }
 
 :is(header.container-header) :is(div.container-header-city-date) :is(span.city) :is(box-icon) {
