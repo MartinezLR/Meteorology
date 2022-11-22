@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 220px;
+    height: 270px;
     padding: 17px 15px;
     border-radius: var(--radius-00);
     background-color: var(--color-01);
@@ -12,4 +12,5 @@
     height: 100%;
     width: 100%;
     border-radius: 5px;
+    /* filter: grayscale(100%) invert(92%) contrast(83%); */
 }

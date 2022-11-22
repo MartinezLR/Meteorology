@@ -60,6 +60,6 @@ app.controller('$ctrl.main', ['$scope', '$rootScope', '$request', '$weather', '$
     }
 
     scope.time.refreshTime()
-    scope.location('São Paulo');
+    scope.location('Guararema');
     scope.geolacation()
 }])

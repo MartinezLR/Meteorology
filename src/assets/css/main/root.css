@@ -27,22 +27,22 @@
 
 @media (prefers-color-scheme: light) {
     :is(:root) {
-        /* --color-10: #1a1c1e; */
-        --color-10: #ff4199;
-        /* --color-09: #202329; */
-        --color-09: #e05998;
-        /* --color-08: #3d434f; */
-        --color-08: #ed71ab;
-        /* --color-07: #5b6475; */
-        --color-07: #ff0077;
+        --color-10: #1a1c1e;
+        /* --color-10: #ff4199; */
+        --color-09: #202329;
+        /* --color-09: #e05998; */
+        --color-08: #3d434f;
+        /* --color-08: #ed71ab; */
+        --color-07: #5b6475;
+        /* --color-07: #ff0077; */
         --color-06: #5b6475;
-        /* --color-05: #8e8e8e; */
-        --color-05: #f497c3;
+        --color-05: #8e8e8e;
+        /* --color-05: #f497c3; */
         --color-04: #a6a6a6;
         --color-03: #bbbbbb;
         --color-02: #cdcdcd;
-        /* --color-01: #f9f9f9; */
-        --color-01: #ffd6e9;
+        --color-01: #f9f9f9;
+        /* --color-01: #ffd6e9; */
         --color-00: #ffffff;
     }
 
