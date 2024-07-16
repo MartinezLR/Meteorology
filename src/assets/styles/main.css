@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@media only screen and (min-width: 480px) {
+    body {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .loader {
+        display: grid;
+        position: fixed;
+        place-items: center;
+        inset: 0;
+        background-color: var(--color-00);
+        transition: opacity .25s, visibility 1s;
+        z-index: 10000;
+    }
+
+    .fade {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* ===== Scrollbar CSS ===== */
+    /* Firefox */
+    * {
+        scrollbar-width: auto;
+        scrollbar-color: #d4d4d4;
+    }
+
+    /* Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 100px;
+        border: none;
+    }
+
+    :is(body) {
+        padding: 20px;
+        transition: 0.6s;
+    }
+
+    :is(div.container-title-section) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px;
+        height: 55px;
+    }
+
+    :is(div.container-title-section) :is(div.container-location) :is(box-icon) {
+        height: 22px;
+        width: 22px;
+        fill: var(--color-09);
+    }
+
+    :is(div.container-title-section) :is(div.container-location) :is(span.title) {
+        margin: 0 15px;
+        color: var(--color-09);
+    }
+
+    :is(div.container-title-section) :is(div.container-more) :is(button.more) {
+        border: none;
+        color: var(--color-05);
+        background-color: transparent;
+    }
+
+    :is(div.container-title-section) :is(div.container-location) :is(box-icon[name|=current-location]) {
+        fill: rgb(152, 164, 254);
+    }
+
+    :is(div.container-title-section) :is(div.container-location) :is(box-icon[name|=calendar]) {
+        fill: rgb(158, 255, 184);
+    }
+
+    :is(div.container-title-section) :is(div.container-location) :is(box-icon[name|=cloud-rain]) {
+        fill: rgb(221, 158, 255);
+    }
+
+    :is(div.container-title-section) :is(div.container-location) :is(box-icon[name|=image]) {
+        fill: rgb(255, 191, 163);
+    }
+
+    :is(button.button-search) {
+        position: fixed;
+        bottom: 5%;
+        left: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 48px;
+        width: 48px;
+        border: none;
+        border-radius: 100%;
+        fill: var(--color-00);
+        background-color: var(--color-10);
+        transform: translate(-50%);
+    }
+}
