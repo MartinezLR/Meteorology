@@ -3,38 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="color-scheme" content="dark light">
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="shortcut icon" href="src/assets/img/icon.png" type="image/x-icon">
-
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#222222">
     <title>Meteorology</title>
-
-    <link rel="stylesheet" href="src/assets/css/header/header.css">
-
-    <link rel="stylesheet" href="src/assets/css/inicio/temperature/temperature.css">
-
-    <link rel="stylesheet" href="src/assets/css/inicio/timer/timer.css">
-
-    <link rel="stylesheet" href="src/assets/css/inicio/information/information.css">
-
-    <link rel="stylesheet" href="src/assets/css/inicio/location/location.css">
-
-    <link rel="stylesheet" href="src/assets/css/inicio/week/week.css">
-
-    <link rel="stylesheet" href="src/assets/css/inicio/forecast/forecast.css">
-
-    <link rel="stylesheet" href="src/assets/css/inicio/image/image.css">
-
-    <link rel="stylesheet" href="src/assets/css/main/root.css">
-
-    <link rel="stylesheet" href="src/assets/css/main/main.css">
-
-    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- -------------------------- (START) import of styling files -------------------------- -->
+    <link rel="shortcut icon" href="src/assets/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="dist/main.css">
+    <!-- -------------------------- (END) import of styling files -------------------------- -->
 </head>
 
 <body>
@@ -64,30 +43,9 @@
         <box-icon name='search' type='solid'></box-icon>
     </button>
 
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-
-    <script src="lib/node_modules/jquery/dist/jquery.min.js"></script>
-
-    <script src="lib/node_modules/angular/angular.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular-route.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular-animate.js"></script>
-
-    <script src="src/assets/js/angular/app/app.js"></script>
-
-    <script src="src/assets/js/angular/config/router/route.js"></script>
-
-    <script src="src/assets/js/angular/factorys/request.js"></script>
-
-    <script src="src/assets/js/angular/factorys/weather.js"></script>
-
-    <script src="src/assets/js/angular/factorys/utc.js"></script>
-
-    <script src="src/assets/js/angular/controllers/main/main.js"></script>
-
-    <script src="src/assets/js/angular/controllers/inicio/inicio.js"></script>
-
+    <!-- -------------------------- (START) import of scripts files -------------------------- -->
+    <script type="module" src="dist/bundle.js"></script>
+    <!-- -------------------------- (END) import of scripts files -------------------------- -->
 </body>
 
 </html>
