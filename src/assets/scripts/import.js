@@ -9,7 +9,6 @@ import 'boxicons/dist/boxicons.js';
 // Styles
 import '../styles/theme/dark.mode.css';
 import '../styles/theme/light.mode.css';
-import '../styles/theme/colors.css';
 import '../styles/reset.css';
 
 //Modules
