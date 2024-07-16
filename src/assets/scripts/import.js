@@ -1,5 +1,6 @@
 // AngularJS
 import angular from 'angular';
+import '@uirouter/angularjs';
 
 // Boxicons
 import 'boxicons/css/boxicons.min.css';
@@ -14,6 +15,10 @@ import '../styles/reset.css';
 //Scripts
 import './modules/root.module.js';
 import './controllers/root.controller.js';
+import './controllers/home.controller.js';
+
+// Rotas
+import './config/router.config.js';
 
 // Components
 import './components/header-component/header.component.css';
