@@ -12,12 +12,21 @@ import '../styles/theme/light.mode.css';
 import '../styles/theme/colors.css';
 import '../styles/reset.css';
 
-//Scripts
+//Modules
 import './modules/root.module.js';
+import './modules/client.module.js';
+
+// Controllers
 import './controllers/root.controller.js';
 import './controllers/home.controller.js';
 
-// Rotas
+//Services
+import './services/dateTime.service.js';
+import './services/http.service.js';
+import './services/weatherData.service.js';
+import './services/translation.service.js';
+
+// Routes
 import './config/router.config.js';
 
 // Components
