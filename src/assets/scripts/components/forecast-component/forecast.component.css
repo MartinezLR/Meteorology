@@ -1,0 +1,105 @@
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+forecast-component * {
+    scrollbar-width: auto;
+    scrollbar-color: #d4d4d4;
+}
+
+/* Chrome, Edge, and Safari */
+forecast-component *::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+forecast-component *::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+forecast-component *::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    border: none;
+}
+
+forecast-component div.container-title-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    height: 55px;
+}
+
+forecast-component div.container-title-section div.container-more button.more {
+    border: none;
+    color: var(--cl-gray-05);
+    background-color: transparent;
+}
+
+forecast-component div.container-title-section div.container-location box-icon {
+    height: 22px;
+    width: 22px;
+    fill: var(--cl-gray-09);
+}
+
+forecast-component div.container-title-section div.container-location span.title {
+    margin: 0 15px;
+    color: var(--cl-gray-09);
+}
+
+forecast-component div.container-title-section div.container-more button.more {
+    border: none;
+    color: var(--cl-gray-05);
+    background-color: transparent;
+}
+
+forecast-component div.container-title-section div.container-location box-icon[name|=cloud-rain] {
+    fill: rgb(221, 158, 255);
+}
+
+forecast-component div.container-location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+forecast-component section.container-weather-forecast {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    overflow-x: scroll;
+}
+
+forecast-component section.container-weather-forecast div.container-weather {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 100%;
+    height: 100px;
+    border-radius: var(--radius-00);
+    color: var(--cl-gray-05);
+    background-color: var(--cl-gray-01);
+}
+
+forecast-component section.container-weather-forecast div.container-weather div.container-text {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    margin-right: auto;
+}
+
+forecast-component section.container-weather-forecast div.container-weather div.container-text span.tomorrow,
+forecast-component section.container-weather-forecast div.container-weather div.container-text span.after-tomorrow {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--cl-gray-10);
+}
+
+forecast-component section.container-weather-forecast div.container-weather div.container-text span.tip-day {
+    color: var(--cl-gray-07);
+}
+
+forecast-component section.container-weather-forecast div.container-weather:not(:last-child) {
+    margin-right: 20px;
+}

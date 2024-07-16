@@ -1,0 +1,105 @@
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+week-component * {
+    scrollbar-width: auto;
+    scrollbar-color: #d4d4d4;
+}
+
+/* Chrome, Edge, and Safari */
+week-component *::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+week-component *::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+week-component *::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    border: none;
+}
+
+week-component div.container-title-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    height: 55px;
+}
+
+week-component div.container-title-section div.container-more button.more {
+    border: none;
+    color: var(--cl-gray-05);
+    background-color: transparent;
+}
+
+week-component div.container-title-section div.container-location box-icon {
+    height: 22px;
+    width: 22px;
+    fill: var(--cl-gray-09);
+}
+
+week-component div.container-title-section div.container-location span.title {
+    margin: 0 15px;
+    color: var(--cl-gray-09);
+}
+
+week-component div.container-title-section div.container-more button.more {
+    border: none;
+    color: var(--cl-gray-05);
+    background-color: transparent;
+}
+
+week-component div.container-title-section div.container-location box-icon[name|=calendar] {
+    fill: rgb(158, 255, 184);
+}
+
+week-component div.container-location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+week-component section.container-weather-week {
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+week-component section.container-weather-week div.container-weather,
+week-component section.container-weather-week div.container-text,
+week-component section.container-weather-week div.container-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+week-component section.container-weather-week div.container-weather {
+    justify-content: space-between;
+    height: 190px;
+    min-width: 130px;
+    border-radius: var(--radius-00);
+    color: var(--cl-gray-05);
+    background-color: var(--cl-gray-01);
+}
+
+week-component section.container-weather-week div.container-weather div.container-text {
+    margin-bottom: 30px;
+}
+
+week-component section.container-weather-week div.container-weather div.container-text span.climate {
+    text-align: center;
+    font-weight: 500;
+    color: var(--cl-gray-10);
+}
+
+week-component section.container-weather-week div.container-weather div.container-text span.day-week {
+    color: var(--cl-gray-07);
+}
+
+week-component section.container-weather-week div.container-weather:not(:last-child) {
+    margin-right: 20px;
+}

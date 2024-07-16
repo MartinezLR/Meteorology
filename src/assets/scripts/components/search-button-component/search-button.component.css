@@ -1,0 +1,15 @@
+button.button-search {
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 48px;
+    border: none;
+    border-radius: 100%;
+    fill: var(--cl-gray-00);
+    background-color: var(--cl-gray-10);
+    transform: translate(-50%);
+}

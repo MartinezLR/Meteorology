@@ -1,0 +1,56 @@
+location-component div.container-title-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    height: 55px;
+}
+
+location-component div.container-title-section div.container-more button.more {
+    border: none;
+    color: var(--cl-gray-05);
+    background-color: transparent;
+}
+
+location-component div.container-title-section div.container-location box-icon {
+    height: 22px;
+    width: 22px;
+    fill: var(--cl-gray-09);
+}
+
+location-component div.container-title-section div.container-location span.title {
+    margin: 0 15px;
+    color: var(--cl-gray-09);
+}
+
+location-component div.container-title-section div.container-more button.more {
+    border: none;
+    color: var(--cl-gray-05);
+    background-color: transparent;
+}
+
+location-component div.container-title-section div.container-location box-icon[name|=current-location] {
+    fill: rgb(152, 164, 254);
+}
+
+location-component div.container-location{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+location-component section.container-maps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 270px;
+    padding: 17px 15px;
+    border-radius: var(--radius-00);
+    background-color: var(--cl-gray-01);
+}
+
+location-component section.container-maps iframe {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}

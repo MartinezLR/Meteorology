@@ -1,0 +1,51 @@
+header.container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+}
+
+header.container-header div.container-header-button,
+header.container-header div.container-header-city-date {
+    display: flex;
+    flex-direction: column;
+}
+
+header.container-header div.container-header-button button.button.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-00);
+    background-color: var(--cl-gray-01);
+}
+
+header.container-header button.button.menu,
+header.container-header span.city {
+    fill: var(--cl-gray-10);
+}
+
+header.container-header button.button.menu:disabled {
+    fill: #2e353ca1 !important;
+}
+
+header.container-header box-icon[name|=map] {
+    fill: rgb(255, 96, 96);
+}
+
+header.container-header div.container-header-city-date span.city {
+    font-size: 20px;
+    color: var(--cl-gray-10);
+}
+
+header.container-header div.container-header-city-date span.city box-icon {
+    height: 18px;
+    width: 18px;
+}
+
+header.container-header div.container-header-city-date span.date {
+    font-weight: 500;
+    color: var(--cl-gray-05);
+}

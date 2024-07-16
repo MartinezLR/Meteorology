@@ -1,0 +1,48 @@
+section.container-informations {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    margin-top: 22.5px;
+    border-radius: var(--radius-00);
+    background-color: var(--cl-gray-01);
+}
+
+section.container-informations div[class|=container-information] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 85%;
+    width: 33.33%;
+}
+
+section.container-informations div[class|=container-information] box-icon {
+    height: 30px;
+    width: 30px;
+    fill: var(--cl-gray-10);
+}
+
+section.container-informations div[class|=container-information] box-icon[name|=cloud] {
+    fill: rgb(255, 255, 199);
+}
+
+section.container-informations div[class|=container-information] box-icon[name|=wind] {
+    fill: rgb(242, 255, 1);
+}
+
+section.container-informations div[class|=container-information] box-icon[name|=droplet] {
+    fill: rgb(120, 217, 255);
+}
+
+section.container-informations div[class|=container-information] span {
+    color: var(--cl-gray-10);
+}
+
+section.container-informations div[class|=container-information] span[class|=information] {
+    color: var(--cl-gray-07);
+}
+
+section.container-informations div[class|=container-information]:not(:last-child) {
+    border-right: 1px solid var(--cl-gray-00);
+}

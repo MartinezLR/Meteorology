@@ -1,0 +1,87 @@
+image-component div.container-title-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    height: 55px;
+}
+
+image-component div.container-title-section div.container-more button.more {
+    border: none;
+    color: var(--cl-gray-05);
+    background-color: transparent;
+}
+
+image-component div.container-title-section div.container-location box-icon {
+    height: 22px;
+    width: 22px;
+    fill: var(--cl-gray-09);
+}
+
+image-component div.container-title-section div.container-location span.title {
+    margin: 0 15px;
+    color: var(--cl-gray-09);
+}
+
+image-component div.container-title-section div.container-more button.more {
+    border: none;
+    color: var(--cl-gray-05);
+    background-color: transparent;
+}
+
+image-component div.container-title-section div.container-location box-icon[name|=image] {
+    fill: rgb(255, 191, 163);
+}
+
+image-component div.container-location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+image-component section.container-image-location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 10px;
+    height: 300px;
+    border-radius: var(--radius-00);
+    color: var(--cl-gray-05);
+    background-color: var(--cl-gray-01);
+}
+
+image-component section.container-image-location div.container-image {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: calc(var(--radius-00)/2);
+}
+
+image-component section.container-image-location img {
+    border-radius: calc(var(--radius-00)/2);
+    filter: brightness(70%);
+}
+
+image-component section.container-image-location div.container-information {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.396796218487395) 0%, rgba(26, 28, 30, 1) 100%);
+}
+
+image-component section.container-image-location div.container-information span.city {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--cl-gray-10);
+}
+
+image-component section.container-image-location div.container-information p.introduction {
+    margin: 0;
+    color: var(--cl-gray-07);
+}

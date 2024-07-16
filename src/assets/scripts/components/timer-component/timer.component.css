@@ -1,11 +1,11 @@
-:is(section.container-time) {
+section.container-time {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
 }
 
-:is(section.container-time) :is(button.timer) {
+section.container-time button.timer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,13 +15,13 @@
     border: none;
     border-radius: var(--radius-00);
     font-weight: 600;
-    color: var(--color-10);
-    background-color: var(--color-01);
+    color: var(--cl-gray-10);
+    background-color: var(--cl-gray-01);
 }
 
-:is(section.container-time) :is(box-icon[name|=watch]) {
+section.container-time box-icon[name|=watch] {
     height: 20px;
     width: 20px;
     margin-right: 10px;
-    fill: var(--color-10);
+    fill: var(--cl-gray-10);
 }
