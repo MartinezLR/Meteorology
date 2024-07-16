@@ -1,0 +1,5 @@
+:root {
+    color-scheme: dark light;
+    color: var(--cl-gray-10) !important;
+    background-color: var(--cl-gray-00) !important;
+}
